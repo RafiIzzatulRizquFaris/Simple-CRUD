@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style>
+
+    </style>  
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            let login = $("<p></p>").text("login")
+            $("body").append(login)
+            let email = $("<input></input><br><br>").attr("type","text").attr("placeholder","masukan e-mail anda")
+            $("body").append(email)
+            let pw = $("<input></input><br><br>").attr("type","password").attr("placeholder","password")
+            $("body").append(pw)
+            let berhasil = $("<p></p>").text("anda berhasil login") 
+            let klik = $("<input></input>").attr("type","submit").click(function () {
+                $("body").append(berhasil)
+                berhasil.toggle(100)
+            })
+            $("body").append(klik)
+        })
+    </script>
+
+</body>
+</html>
+<!-- <style>
+        .text-black{color: black}
+        .bg-red{background-color : red}
+        .blue-border{border: solid 4px blue}
+    </style> -->
+<!-- <script>
+        $(document).ready(function () {
+            let name = $("<h1></h1>").text("FARIS MASTAH KU").addClass("text-black bg-red blue-border")
+            let tombol = $("<input></input>").attr("type","submit").click(function () {
+                $("body").append(name)
+                name.toggle(100)
+            })
+            $("body").append(tombol)
+        })
+    </script> -->

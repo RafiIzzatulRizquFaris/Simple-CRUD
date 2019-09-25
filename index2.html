@@ -33,17 +33,7 @@
         <input type="text" class="form-control" placeholder="Insert Something" aria-label="Username"
             aria-describedby="basic-addon1" id="inputText">
         <div class="input-group-append">
-            <input class="btn btn-outline-secondary" type="submit" id="btnInsert" onclick="create()" value="Insert">
-        </div>
-    </div>
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-        </div>
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            <input class="btn btn-outline-secondary" type="submit" id="btnInsert"  value="Insert">
         </div>
     </div>
 
@@ -51,42 +41,31 @@
 
     <script>
         let array = []
-        let arrayImage = []
-        let btnInsert = document.getElementById('btnInsert')
-        let placeholder = document.getElementById('product')
-
+        let btnInsert = $("#btnInsert")
+        let placeholder = $("#product")
+        
         function show() {
-            placeholder.innerHTML = ""
+            placeholder.text("")
             for (let i = 0; i < array.length; i++) {
-                placeholder.innerHTML +=
-                    '<div class="card mb-3" style="max-width: 100%;"><div class="row no-gutters"><div class="col-md-4"><img src="' +
-                    arrayImage[i] +
-                    '" style="width: 20%" class="card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' +
-                    array[i] +
-                    '</h5><input class="btn btn-outline-secondary" type="submit" id="btnDelete" onclick="deleted(' + i +
-                    ')" value="Delete"><input class="btn btn-outline-secondary" type="submit" id="btnUpdate" onclick="update(' +
-                    i + ')" value="Update"></div></div></div></div>'
+                placeholder.html('<div class="card mb-3" style="max-width: 100%;"><div class="row no-gutters"><div class="col-md-4"><img src="src.jpg" style="width: 20%" class="card-img" alt="..."></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' + array[i] + '</h5><input class="btn btn-outline-secondary" type="submit" id="btnDelete" onclick="deleted('+i+')" value="Delete"><input class="btn btn-outline-secondary" type="submit" id="btnUpdate" onclick="update('+i+')" value="Update"></div></div></div></div>')
             }
         }
 
-        function create() {
-            let inputText = document.getElementById('inputText').value
-            let inputImg = document.getElementById('inputGroupFile01').value
+        btnInsert.click(function () {
+            let inputText = $("#inputText").val()
             array.push(inputText)
-            arrayImage.push(inputImg)
             show()
-        }
+        })
 
         function deleted(choose) {
             array.splice(choose, 1)
             show()
         }
-
         function update(choose) {
-            let newProduct = prompt("Updating Product " + array[choose])
+            let newProduct = prompt("Updating Product "+array[choose])
             array[choose] = newProduct
             show()
-            alert("Product Updated" + array[choose])
+            alert("Product Updated" +array[choose])
         }
     </script>
 </body>
