@@ -52,7 +52,7 @@
     <script>
         let array = []
         let arrayImage = []
-        let btnInsert = document.getElementById('btnInsert')
+        let btnInsert = $("#btnInsert")
         let placeholder = document.getElementById('product')
 
         function show() {
@@ -70,8 +70,9 @@
         }
 
         function create() {
-            let inputText = document.getElementById('inputText').value
-            let inputImg = document.getElementById('inputGroupFile01').value
+            let inputText = $("#inputText").val()
+            let inputImg = $("#inputGroupFile01").val()
+            console.log(inputText)
             array.push(inputText)
             arrayImage.push(inputImg)
             show()
